@@ -48,37 +48,4 @@ public class Start {
 
 }
 
-class Car {
 
-  private final String name;
-
-  private final int id;
-
-  public Car(String name, int id) {
-    this.name = name;
-    this.id = id;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Car car = (Car)o;
-    return id == car.id && name.equals(car.name);
-  }
-
-  @Override
-  public int hashCode() {
-    //return Objects.hash(name, id);
-    return 1;
-  }
-
-  @Override
-  public String toString() {
-    return "Car{" + "name='" + name + '\'' + ", id=" + id + '}';
-  }
-}
