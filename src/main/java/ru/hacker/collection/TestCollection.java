@@ -4,16 +4,25 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.function.BiFunction;
 
 public class TestCollection {
 
   public static void main(String[] args) {
 
-    Map<Car, String> treeMap = new TreeMap<>(new Comparator<Car>() {
-      @Override
-      public int compare(Car o1, Car o2) {
-        return o1.getName().compareTo(o2.getName());
-      }
+    BiFunction<Integer, Integer, String> test = (a, b) -> {
+      System.out.println("Test lambda");
+      return String.valueOf(a + b);
+    };
+
+    testFunc(test);
+
+   // System.out.println(test.andThen(result -> "test " + result).apply(2, 3));
+
+   /* Map<Car, String> treeMap = new TreeMap<>((o1, o2) -> {
+      System.out.println(a[0]);
+      a[0]++;
+      return o1.getName().compareTo(o2.getName());
     });
     treeMap.put(new Car("ZMW", 2156), "2156");
     treeMap.put(new Car("BMW", 20000), "20000");
@@ -21,7 +30,7 @@ public class TestCollection {
 
     for (Map.Entry<Car, String> item : treeMap.entrySet()) {
       System.out.println(String.format("Key %s - Value %s", item.getKey(), item.getValue()));
-    }
+    }*/
 
 
    /* Map<String, String> strings = new HashMap<>();
@@ -36,6 +45,10 @@ public class TestCollection {
       System.out.println(String.format("Key %s - Value %s", item.getKey(), item.getValue()));
     }*//*
      */
+  }
+
+  public static void testFunc(BiFunction<Integer, Integer, String> test) {
+    System.out.println(test.apply(2, 3));
   }
 
   public static void each(String key, String value) {
